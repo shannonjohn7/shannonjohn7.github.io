@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>zzzooo 任务看板：批量生成、失败重试、状态一目了然</title>
+<meta name="keywords" content="zzzooo,批量生成,任务看板,内容生成,重试,模型切换">
+<meta name="description" content="zzzooo 是一款面向内容团队与个人创作者的任务看板工具，把批量生成任务的网站、网址、开始与结束时间、模型、账号、耗时、状态与上传进度集中在一处，信息密集却清晰易读。支持一键重试失败任务、快速切换生成模型、删除无用记录，生成字数与用时实时统计，失败状态醒目提示，多列高密度排版在宽屏展开、窄屏自动折叠成卡片。">
+<link rel="canonical" href="https://zzzooo.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="zzzooo 任务看板：批量生成、失败重试、状态一目了然">
+<meta property="og:description" content="zzzooo 是一款面向内容团队与个人创作者的任务看板工具，把批量生成任务的网站、网址、开始与结束时间、模型、账号、耗时、状态与上传进度集中在一处，信息密集却清晰易读。支持一键重试失败任务、快速切换生成模型、删除无用记录，生成字数与用时实时统计，失败状态醒目提示，多列高密度排版在宽屏展开、窄屏自动折叠成卡片，让你在几分钟内掌握全部任务的健康状况，把时间留给真正重要的内容创作。">
+<meta property="og:url" content="https://zzzooo.pages.dev/">
+<meta property="og:site_name" content="zzzooo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="zzzooo 任务看板：批量生成、失败重试、状态一目了然">
+<meta name="twitter:description" content="zzzooo 是一款面向内容团队与个人创作者的任务看板工具，把批量生成任务的网站、网址、开始与结束时间、模型、账号、耗时、状态与上传进度集中在一处，信息密集却清晰易读。支持一键重试失败任务、快速切换生成模型、删除无用记录，生成字数与用时实时统计，失败状态醒目提示，多列高密度排版在宽屏展开、窄屏自动折叠成卡片，让你在几分钟内掌握全部任务的健康状况，把时间留给真正重要的内容创作。">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"zzzooo","url":"https://zzzooo.pages.dev/","description":"zzzooo 任务看板，集中管理批量生成任务的进度、状态与耗时，支持失败重试与模型切换。","inLanguage":"zh-CN"}
+</script>
+<link rel="stylesheet" href="assets/vendor/uikit/css/uikit.min.css">
+
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta name="renderer" content="webkit">
+<meta name="format-detection" content="telephone=no">
+<script type="application/ld+json">{"@context":"https://ziyuan.baidu.com/contexts/cambrian.jsonld","@id":"https://zzzooo.pages.dev/","title":"zzzooo 任务看板：批量生成、失败重试、状态一目了然","pubDate":"2026-10-25T19:26:13","upDate":"2026-10-25T19:26:13"}</script>
+<link rel="stylesheet" href="assets/3gzf7c.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="logo"><span class="dot"></span>zzzooo</a>
+    <nav style="display:flex;align-items:center;gap:20px">
+      <a href="/" style="font-size:14px;font-weight:600">首页</a>
+      <a href="#cat-generate" style="font-size:14px;font-weight:600">生成任务</a>
+      <a href="#cat-retry" style="font-size:14px;font-weight:600">失败重试</a>
+      <a href="#cat-model" style="font-size:14px;font-weight:600">模型切换</a>
+      <a href="#cat-log" style="font-size:14px;font-weight:600">运行日志</a>
+      <a href="#cta" class="btn btn-primary btn-sm">开始使用</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>zzzooo 任务看板：批量生成跑起来，<em>失败重试、状态耗时</em>一眼看清</h1>
+      <p class="lead">网站、网址、模型、账号、耗时、状态、上传进度全部并排呈现。哪条任务卡了、哪条生成失败、该重试还是换模型，打开 zzzooo 三秒钟就有答案。</p>
+      <div class="hero-actions">
+        <a href="#cat-generate" class="btn btn-primary">查看任务看板</a>
+        <a href="#faq" class="btn">常见问题</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>12,480</b><span>累计生成任务数</span></div>
+        <div class="stat"><b class="red">98.6%</b><span>重试后成功率</span></div>
+        <div class="stat"><b>15m28s</b><span>平均单任务用时</span></div>
+        <div class="stat"><b>3,746 字</b><span>单篇平均产出字数</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 任务看板 -->
+  <section id="cat-generate">
+    <div class="container">
+      <div class="sec-head">
+        <h2>今日任务列表</h2>
+        <p>每行一条任务，从开始到结束、从模型到账号，信息并列铺开，失败状态标红提示，操作按钮就在行尾。</p>
+      </div>
+      <div class="table-wrap">
+        <table class="task">
+          <thead>
+            <tr>
+              <th style="width:36px"><input type="checkbox" class="check" aria-label="全选"></th>
+              <th>网站</th><th>网址</th><th>时间</th><th>模型</th><th>账号</th><th>耗时</th><th>状态</th><th>上传</th><th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" class="check" aria-label="选择"></td>
+              <td class="t-name">木头泛目录程序</td>
+              <td class="t-url">mtfmlc.pages.dev</td>
+              <td class="t-time"><div><b>开始</b>10-17 21:36</div><div><b>结束</b>10-17 21:51</div><div><b>用时</b>生成 15m28s</div></td>
+              <td>deepseek-flash</td>
+              <td><span class="badge">GH</span><div style="margin-top:6px;font-size:13px">sampsonallison9711</div></td>
+              <td class="t-cost"><b>生成 15m28s · 3746 字</b></td>
+              <td><span class="tag-fail">生成失败</span></td>
+              <td class="t-up">未上传</td>
+              <td><div class="t-ops"><button class="btn btn-sm">重试</button><button class="btn btn-sm">换模型</button><button class="btn btn-sm btn-danger">删除</button></div></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="check" aria-label="选择"></td>
+              <td class="t-name">云端素材集</td>
+              <td class="t-url">yclsc.pages.dev</td>
+              <td class="t-time"><div><b>开始</b>10-17 20:02</div><div><b>结束</b>10-17 20:19</div><div><b>用时</b>生成 17m03s</div></td>
+              <td>qwen-plus</td>
+              <td><span class="badge">GL</span><div style="margin-top:6px;font-size:13px">harveyqmendez3310</div></td>
+              <td class="t-cost"><b>生成 17m03s · 4201 字</b></td>
+              <td><span class="tag-ok">已完成</span></td>
+              <td class="t-up">已上传 · 2 分钟前</td>
+              <td><div class="t-ops"><button class="btn btn-sm">重试</button><button class="btn btn-sm">换模型</button><button class="btn btn-sm btn-danger">删除</button></div></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="check" aria-label="选择"></td>
+              <td class="t-name">晨光内容站</td>
+              <td class="t-url">cgnrz.pages.dev</td>
+              <td class="t-time"><div><b>开始</b>10-17 18:44</div><div><b>结束</b>—</div><div><b>用时</b>进行中 06m12s</div></td>
+              <td>doubao-lite</td>
+              <td><span class="badge">GH</span><div style="margin-top:6px;font-size:13px">lelawrence8824</div></td>
+              <td class="t-cost">预计 3200 字左右</td>
+              <td><span class="tag-wait">生成中</span></td>
+              <td class="t-up">等待生成完成</td>
+              <td><div class="t-ops"><button class="btn btn-sm btn-danger">删除</button></div></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" class="check" aria-label="选择"></td>
+              <td class="t-name">拾光笔记站</td>
+              <td class="t-url">sgbjz.pages.dev</td>
+              <td class="t-time"><div><b>开始</b>10-17 16:30</div><div><b>结束</b>10-17 16:44</div><div><b>用时</b>生成 13m47s</div></td>
+              <td>deepseek-flash</td>
+              <td><span class="badge">GH</span><div style="margin-top:6px;font-size:13px">keriswdawson5507</div></td>
+              <td class="t-cost"><b>生成 13m47s · 3512 字</b></td>
+              <td><span class="tag-ok">已完成</span></td>
+              <td class="t-up">已上传 · 5 小时前</td>
+              <td><div class="t-ops"><button class="btn btn-sm">重试</button><button class="btn btn-sm">换模型</button><button class="btn btn-sm btn-danger">删除</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分类入口 -->
+  <section id="cats">
+    <div class="container">
+      <div class="sec-head">
+        <h2>功能频道</h2>
+        <p>按使用频率整理的四条主线，点进去直达对应板块。</p>
+      </div>
+      <div class="grid-4">
+        <a class="card" href="#cat-generate"><span class="k">频道 01</span><h3>生成任务</h3><p>批量任务的进度与产出总览。</p></a>
+        <a class="card" href="#cat-retry"><span class="k">频道 02</span><h3>失败重试</h3><p>失败任务快速定位与再次执行。</p></a>
+        <a class="card" href="#cat-model"><span class="k">频道 03</span><h3>模型切换</h3><p>换模型跑同一任务，秒级重启。</p></a>
+        <a class="card" href="#cat-log"><span class="k">频道 04</span><h3>运行日志</h3><p>开始、结束与用时的完整记录。</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 卖点 -->
+  <section id="features" style="background:#fafbfc">
+    <div class="container">
+      <div class="sec-head">
+        <h2>为什么团队把任务都挂在 zzzooo 上</h2>
+        <p>信息密集但不乱，操作入口永远在你眼前。</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><span class="k">多列并列</span><h3>一行看全一条任务</h3><p>网站、网址、模型、账号、耗时、状态各占一列，不用点进去再退出来，扫一眼就是全景。</p></div>
+        <div class="card"><span class="k">三行时间组</span><h3>开始 / 结束 / 用时</h3><p>时间列按三行小字堆叠，几点启动、几点跑完、花了多久，对账复盘都有据可查。</p></div>
+        <div class="card"><span class="k">状态标红</span><h3>失败一眼可见</h3><p>失败状态加粗红字显示，底色淡红高亮，出错的任务在长列表里根本藏不住。</p></div>
+        <div class="card"><span class="k">即时操作</span><h3>重试 / 换模型 / 删除</h3><p>操作按钮常驻行尾，白底描边小巧紧凑，失败任务不需要跳页，点一下就重新跑。</p></div>
+        <div class="card"><span class="k">账号徽标</span><h3>GH 风格徽章标识</h3><p>每个账号带圆角描边徽章，多账号并行时来源清晰，混淆率为零。</p></div>
+        <div class="card"><span class="k">窄屏折叠</span><h3>手机上也完整可读</h3><p>宽屏多列展开，窄屏自动折叠成堆叠卡片，操作按钮置底，通勤路上也能盯进度。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 失败重试 -->
+  <section id="cat-retry">
+    <div class="container">
+      <div class="sec-head"><h2>失败重试，不再返工</h2><p>生成失败不可怕，可怕的是找不到、改不了、追不回。</p></div>
+      <div class="grid-3">
+        <div class="card"><h3>失败即标红</h3><p>失败任务整行薄荷绿悬停高亮、状态红字提示，配合未上传标记，从列表到收尾一气呵成。</p></div>
+        <div class="card"><h3>一键重试</h3><p>沿用原任务参数原地重跑，开始时间与用时自动重新记录，历史失败原因保留可查。</p></div>
+        <div class="card"><h3>批量勾选</h3><p>行首复选框支持逐条或全选，一次勾选整批失败任务，统一重试不漏一条。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 模型切换 -->
+  <section id="cat-model" style="background:#fafbfc">
+    <div class="container">
+      <div class="sec-head"><h2>换模型，像换个频道一样简单</h2><p>同一个任务，deepseek-flash 跑不动就换 qwen-plus，参数不丢、字数统计接着算。</p></div>
+      <div class="news">
+        <div class="news-item"><span class="date">热门组合</span><div><h4>deepseek-flash → qwen-plus</h4><p>失败率下降约 42%，单篇平均用时增加不到 2 分钟。</p></div></div>
+        <div class="news-item"><span class="date">省时之选</span><div><h4>doubao-lite 轻量快跑</h4><p>适合短篇任务，平均用时缩短三分之一，字数略降。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 运行日志 -->
+  <section id="cat-log">
+    <div class="container">
+      <div class="sec-head"><h2>运行日志：每一秒都有据可查</h2><p>开始、结束、用时三行结构，配合字数与上传状态，复盘从这里开始。</p></div>
+      <div class="grid-3">
+        <div class="card"><span class="k">10-17 21:36 → 21:51</span><h3>木头泛目录程序</h3><p>deepseek-flash · 生成 15m28s · 3746 字 · 生成失败，待重试。</p></div>
+        <div class="card"><span class="k">10-17 20:02 → 20:19</span><h3>云端素材集</h3><p>qwen-plus · 生成 17m03s · 4201 字 · 已完成并上传。</p></div>
+        <div class="card"><span class="k">10-17 16:30 → 16:44</span><h3>拾光笔记站</h3><p>deepseek-flash · 生成 13m47s · 3512 字 · 已完成并上传。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section id="faq" style="background:#fafbfc">
+    <div class="container">
+      <div class="sec-head"><h2>常见问题</h2></div>
+      <details class="faq-item"><summary>任务生成失败后数据会丢吗？</summary><div class="ans">不会。失败任务完整保留开始、结束与已生成字数，重试后在同一行继续记录新一次用时，前后对比一目了然。</div></details>
+      <details class="faq-item"><summary>换模型后需要重新配置任务吗？</summary><div class="ans">不需要。换模型沿用原任务的目标网站与账号信息，只替换生成模型，点击后立即重新排队执行。</div></details>
+      <details class="faq-item"><summary>多账号并行会互相影响吗？</summary><div class="ans">每个账号独立徽章标识、独立记录用时与状态，互不干扰，失败也只标记当前账号对应的那条任务。</div></details>
+      <details class="faq-item"><summary>删除操作可以恢复吗？</summary><div class="ans">删除为不可逆操作，按钮以红字描边样式区别于普通按钮，建议确认无用后再清理，重要任务建议保留日志。</div></details>
+    </div>
+  </section>
+
+  <!-- cta -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <h2>把今天的任务挂到 zzzooo 上跑一轮</h2>
+          <p>从失败标红到一键重试，从用时统计到上传状态，看板打开的那一刻，进度尽在掌握。</p>
+        </div>
+        <a href="#cat-generate" class="btn btn-primary" style="padding:12px 28px;font-size:15px">开始使用 zzzooo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="f-grid">
+      <div>
+        <a href="/" class="logo"><span class="dot"></span>zzzooo</a>
+        <p class="f-desc">面向内容团队与个人创作者的任务看板，批量生成、失败重试、模型切换、运行日志，一页看全。</p>
+      </div>
+      <div><h5>功能频道</h5><ul>
+        <li><a href="#cat-generate">生成任务</a></li>
+        <li><a href="#cat-retry">失败重试</a></li>
+        <li><a href="#cat-model">模型切换</a></li>
+        <li><a href="#cat-log">运行日志</a></li>
+      </ul></div>
+      <div><h5>页面</h5><ul>
+        <li><a href="/">首页</a></li>
+        <li><a href="#features">功能亮点</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul></div>
+      <div><h5>联系</h5><ul>
+        <li><a href="#cta">开始使用</a></li>
+        <li><a href="#cats">功能频道</a></li>
+      </ul></div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 zzzooo · zzzooo.pages.dev</span>
+      <span>让每一条生成任务都有迹可循</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
